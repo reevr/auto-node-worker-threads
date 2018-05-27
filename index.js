@@ -44,5 +44,8 @@ class AutoWebWorker {
     formatFunc(workerFunc) {
         const funcString = workerFunc.toString();
         funcString.substring(funcString.indexOf('{'), funcString.length)
+        return function() {
+            
+        }
     }
 }
