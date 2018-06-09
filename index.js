@@ -25,17 +25,31 @@ class AutoWebWorker {
     }
 
     __assignThread(workerFunc) {
-      workerFunc =  this.formatFunc(workerFunc);
-      return new Worker(workerFunc);
+      // workerFunc =  this.formatFunc(workerFunc);
+      const worker = new Worker(workerFunc);
+      const handler = this.__setDataHandler(worker);
+      return { worker, handler };
+    }
+
+    __setDataHandler(worker) {
+      return new Promise((resolve, reject) => {
+        worker.once('onmessage', (event) => {
+          return resolve(event.data);
+        });
+        worker.once('error', (err) => {
+          return reject(err);
+        });
+      });
     }
 
     __waitForThread(workerFunc) {
       return Promise((resolve, reject) => {
-        setInterval(() => {
+        const timer = setInterval(() => {
           if (this.__totalThreads < this.__maxThreadCount) {
-            resolve(this.assignThread());
+            clearInterval(timer);
+            resolve(this.assignThread(workerFunc));
           } else if (this.__totalThreads > this.__maxThreadCount) {
-            reject(new Error('Thread count overflow'));    
+            reject(new Error('Thread stack overflow'));    
           }
         }, 50);
       });
@@ -45,7 +59,7 @@ class AutoWebWorker {
         const funcString = workerFunc.toString();
         funcString.substring(funcString.indexOf('{'), funcString.length)
         return function() {
-            
+            // under construction :-D .
         }
     }
 }
