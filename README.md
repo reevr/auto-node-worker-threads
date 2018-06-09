@@ -15,4 +15,30 @@ Even though many number of threads can be created and used, there exist a certai
 Child process utilizes only one thread and has a limitation on number of child processes to be forked.
 Whereas threads allow to execute plain javascriot code in parallel, therefore reducing the exection time.
 
+# Installation
+
+```
+npm i auto-worker-threads
+```
+
+### Example usage
+```
+const autoWorker = require('auto-worker-threads')(2);
+
+var workerFunc = () => {
+    for (let i = 0; i < 3000000000; i++) {}
+    postMessage('worker work finished');
+}
+
+const bootFunc = async () => {
+    const [worker1, worker2] = await Promise.all([AutoWorker.createWorker(func), AutoWorker.createWorker(func)]);
+    return await Promise.all([worker1.handler,worker2.handler,worker3.handler, worker4.handler, worker5.handler, worker6.handler, worker7.handler, worker8.handler]);
+}
+
+bootFunc()
+.then((data) => {
+    console.log(process.hrtime(time));
+})
+
+```
 
