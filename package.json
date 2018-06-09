@@ -1,0 +1,27 @@
+{
+  "name": "auto-worker-threads",
+  "version": "1.0.0",
+  "description": "A module to automate the thread utilization to fixed number of threads, so as to maintain the perfomance.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "workers",
+    "threads",
+    "worker-threads",
+    "service-threads",
+    "auto-worker-threads",
+    "node-worker-threads"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reevr/auto-web-worker"
+  },
+  "author": "Reev Ranj",
+  "license": "MIT"
+}
