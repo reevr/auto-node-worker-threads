@@ -1,4 +1,4 @@
-# Auto-Web-Worker 
+# Auto-Node-Worker-Threads: (NodeJs web-worker library)
 This module can be used to utilize threading concept in nodeJS efficiently by limiting the number of threads to be used per process , by handling the requirements based on the availability of threads.
 
 The availability of threads is maintained by the user while requiring the module.
@@ -18,12 +18,12 @@ Whereas threads allow to execute plain javascriot code in parallel, therefore re
 # Installation
 
 ```
-npm i auto-worker-threads
+npm i auto-node-worker-threads
 ```
 
 ### Example usage
 ```js
-const autoWorker = require('auto-worker-threads')(2);
+const autoWorker = require('auto-node-worker-threads')(2);
 
 var workerFunc = () => {
     for (let i = 0; i < 3000000000; i++) {}
