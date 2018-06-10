@@ -1,6 +1,6 @@
 {
   "name": "auto-node-worker-threads",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A module to automate the thread utilization to fixed number of threads, so as to maintain the perfomance.",
   "main": "index.js",
   "directories": {
