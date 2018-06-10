@@ -22,22 +22,29 @@ npm i auto-worker-threads
 ```
 
 ### Example usage
-```
+```js
 const autoWorker = require('auto-worker-threads')(2);
 
 var workerFunc = () => {
     for (let i = 0; i < 3000000000; i++) {}
-    postMessage('worker work finished');
+    postMessage('worker task finished');
 }
 
 const bootFunc = async () => {
-    const [worker1, worker2] = await Promise.all([AutoWorker.createWorker(func), AutoWorker.createWorker(func)]);
-    return await Promise.all([worker1.handler,worker2.handler,worker3.handler, worker4.handler, worker5.handler, worker6.handler, worker7.handler, worker8.handler]);
+    const [worker1, worker2] = await Promise.all([
+    AutoWorker.createWorker(func),
+    AutoWorker.createWorker(func)
+    ]);
+    
+    return await Promise.all([
+    worker1.handler,
+    worker2.handler,
+    ]);
 }
 
 bootFunc()
-.then((data) => {
-    console.log(process.hrtime(time));
+.then(([ data1, data2 ]) => {
+    console.log(data1, data2);
 })
 
 ```
