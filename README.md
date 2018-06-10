@@ -32,13 +32,13 @@ var workerFunc = () => {
 
 const bootFunc = async () => {
     const [worker1, worker2] = await Promise.all([
-    AutoWorker.createWorker(func),
-    AutoWorker.createWorker(func)
+        AutoWorker.createWorker(workerFunc),
+        AutoWorker.createWorker(workerFunc),
     ]);
     
     return await Promise.all([
-    worker1.handler,
-    worker2.handler,
+        worker1.handler,
+        worker2.handler,
     ]);
 }
 
@@ -49,5 +49,5 @@ bootFunc()
 
 ```
 
-# To-do :
+## To-do :
 * Automate the maximum thread count by monitoring performance.
