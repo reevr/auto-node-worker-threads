@@ -23,7 +23,7 @@ npm i auto-node-worker-threads
 
 ### Example usage
 ```js
-const autoWorker = require('auto-node-worker-threads')(2);
+const AutoWorker = require('auto-node-worker-threads')(2);
 
 var workerFunc = () => {
     for (let i = 0; i < 3000000000; i++) {}
@@ -49,3 +49,5 @@ bootFunc()
 
 ```
 
+# To-do :
+* Automate the maximum thread count by monitoring performance.
